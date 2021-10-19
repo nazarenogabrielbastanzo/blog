@@ -18,6 +18,12 @@ export class HomeComponent implements OnInit {
         console.log(posts);
 
       });
+
+    this.reqSvc.getCommentsByPost(1)
+      .subscribe((comments: any) => {
+        console.log(comments);
+
+      });
   }
 
 }
