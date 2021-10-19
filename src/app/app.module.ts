@@ -8,13 +8,25 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { UsersComponent } from './pages/users/users.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { AlbumsComponent } from './pages/albums/albums.component';
+import { TodosComponent } from './pages/todos/todos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    ProfileComponent,
+    UsersComponent,
+    PostsComponent,
+    AlbumsComponent,
+    TodosComponent
   ],
   imports: [
     BrowserModule,
