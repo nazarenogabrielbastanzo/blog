@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestsService } from '../../services/requests.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private reqSvc: RequestsService
+  ) { }
 
   ngOnInit(): void {
+    this.reqSvc.getPosts()
+      .subscribe((posts: any) => {
+        console.log(posts);
+
+      });
   }
 
 }
