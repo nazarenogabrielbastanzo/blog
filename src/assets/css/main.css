@@ -1755,7 +1755,7 @@ input, select, textarea {
 
 /* Button */
 
-	input[type="button"],
+	/* input[type="button"],
 	input[type="submit"],
 	input[type="reset"],
 	button,
@@ -1780,9 +1780,9 @@ input, select, textarea {
 		font-size: 0.85em;
 		letter-spacing: 2px;
 		padding: 0.85em 2.75em 0.85em 2.75em;
-	}
+	} */
 
-		input[type="button"].icon:before,
+		/* input[type="button"].icon:before,
 		input[type="submit"].icon:before,
 		input[type="reset"].icon:before,
 		button.icon:before,
@@ -1791,25 +1791,25 @@ input, select, textarea {
 			padding-right: 0.75em;
 			opacity: 0.5;
 			top: 0.05em;
-		}
+		} */
 
-		input[type="button"]:hover,
+		/* input[type="button"]:hover,
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
 			background: #fd887a;
-		}
+		} */
 
-		input[type="button"]:active,
+		/* input[type="button"]:active,
 		input[type="submit"]:active,
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
 			background: #ed786a;
-		}
+		} */
 
-		input[type="button"].alt,
+		/* input[type="button"].alt,
 		input[type="submit"].alt,
 		input[type="reset"].alt,
 		button.alt,
@@ -1823,15 +1823,15 @@ input, select, textarea {
 			button.alt:hover,
 			.button.alt:hover {
 				background: #979797;
-			}
+			} */
 
-			input[type="button"].alt:active,
+			/* input[type="button"].alt:active,
 			input[type="submit"].alt:active,
 			input[type="reset"].alt:active,
 			button.alt:active,
 			.button.alt:active {
 				background: #878787;
-			}
+			} */
 
 /* Box */
 
@@ -2576,7 +2576,7 @@ input, select, textarea {
 
 		/* Button */
 
-			input[type="button"],
+			/* input[type="button"],
 			input[type="submit"],
 			input[type="reset"],
 			button,
@@ -2585,7 +2585,7 @@ input, select, textarea {
 				display: block;
 				padding: 1em 0 1em 0;
 				width: 100%;
-			}
+			} */
 
 		/* Actions */
 

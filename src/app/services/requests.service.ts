@@ -66,7 +66,7 @@ export class RequestsService {
 
       for (let user of users) {
         if (user.username === username && password === 'abc123') {
-          localStorage.setItem('username', user.username);
+          localStorage.setItem('userId', user.id);
           this.router.navigate(['/posts']);
         }
       }
@@ -74,9 +74,9 @@ export class RequestsService {
   }
 
   private initializeStorage(): void {
-    const current = localStorage.getItem('username');
+    const current = localStorage.getItem('userId');
     if (!current) {
-      localStorage.setItem('username', '');
+      localStorage.setItem('userId', '');
     }
   }
 }
