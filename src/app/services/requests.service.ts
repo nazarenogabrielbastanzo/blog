@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class RequestsService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.initializeStorage();
   }
@@ -67,6 +69,9 @@ export class RequestsService {
       for (let user of users) {
         if (user.username === username && password === 'abc123') {
           localStorage.setItem('userId', user.id);
+          this._snackBar.open('Login successful', 'Ok', {
+            duration: 2000,
+          });
           this.router.navigate(['/posts']);
         }
       }
