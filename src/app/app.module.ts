@@ -14,6 +14,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { AlbumsComponent } from './pages/albums/albums.component';
 import { TodosComponent } from './pages/todos/todos.component';
+import { MaterialModule } from './shared/modules/material/material.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TodosComponent } from './pages/todos/todos.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
