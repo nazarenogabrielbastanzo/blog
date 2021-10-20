@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { AlbumsComponent } from './pages/albums/albums.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PostsComponent } from './pages/posts/posts.component';
@@ -19,23 +20,28 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'users',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'posts',
-    component: PostsComponent
+    component: PostsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'albums',
-    component: AlbumsComponent
+    component: AlbumsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'todos',
-    component: TodosComponent
+    component: TodosComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',

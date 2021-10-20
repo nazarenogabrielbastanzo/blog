@@ -2,6 +2,7 @@ import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,10 @@ export class RequestsService {
 
   constructor(
     private http: HttpClient,
-  ) { }
+    private router: Router
+  ) {
+    this.initializeStorage();
+  }
 
   public getPosts(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/posts`);
@@ -54,5 +58,25 @@ export class RequestsService {
 
   public getPostsPerUser(userId: number): Observable<any> {
     return this.http.get(`${environment.apiUrl}/users/${userId}/posts`);
+  }
+
+  public login(username: string, password: string) {
+    this.getUsers().subscribe((users: any) => {
+      console.log(users);
+
+      for (let user of users) {
+        if (user.username === username && password === 'abc123') {
+          localStorage.setItem('username', user.username);
+          this.router.navigate(['/posts']);
+        }
+      }
+    });
+  }
+
+  private initializeStorage(): void {
+    const current = localStorage.getItem('username');
+    if (!current) {
+      localStorage.setItem('username', '');
+    }
   }
 }

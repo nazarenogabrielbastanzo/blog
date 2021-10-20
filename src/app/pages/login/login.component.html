@@ -10,11 +10,11 @@
             <h2>Login</h2>
           </header>
 
-          <form>
+          <form [formGroup]="myForm">
             <p>
               <mat-form-field appearance="outline">
                 <mat-label>Username</mat-label>
-                <input matInput>
+                <input matInput formControlName="username">
                 <mat-icon matSuffix>person</mat-icon>
                 <!-- <mat-hint>Hint</mat-hint> -->
               </mat-form-field>
@@ -22,13 +22,17 @@
             <p>
               <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput type="password">
+                <input matInput formControlName="password" type="password">
                 <mat-icon matSuffix>vpn_key</mat-icon>
                 <!-- <mat-hint>Hint</mat-hint> -->
               </mat-form-field>
             </p>
             <p>
-              <button mat-raised-button color="primary">Login</button>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="login()"
+              >Login</button>
             </p>
           </form>
         </div>
