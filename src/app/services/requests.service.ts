@@ -64,8 +64,6 @@ export class RequestsService {
 
   public login(username: string, password: string) {
     this.getUsers().subscribe((users: any) => {
-      console.log(users);
-
       for (let user of users) {
         if (user.username === username && password === 'abc123') {
           localStorage.setItem('userId', user.id);

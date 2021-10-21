@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeaderComponent } from './components/shared/header/header.component';
-import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UsersComponent } from './pages/users/users.component';
@@ -22,7 +21,6 @@ import { TodosComponent } from './pages/todos/todos.component';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent,
     LoginComponent,
     ProfileComponent,
     UsersComponent,
