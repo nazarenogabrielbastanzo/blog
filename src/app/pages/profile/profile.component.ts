@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RequestsService } from '../../services/requests.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  user: any;
 
-  constructor() { }
+  constructor(
+    private reqSvc: RequestsService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    const userId = localStorage.getItem('userId');
+
+    this.reqSvc.getUser(userId).subscribe((user: any) => {
+      this.user = user;
+    });
+  }
+
+  verPosts(userId: number) {
+    this.router.navigate(['/posts', userId]);
   }
 
 }

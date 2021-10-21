@@ -42,6 +42,10 @@ export class RequestsService {
     return this.http.get(`${environment.apiUrl}/users`);
   }
 
+  public getUser(userId: string | null): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/users/${userId}`);
+  }
+
   public getCommentsByPost(postId: number): Observable<any> {
     return this.http.get(`${environment.apiUrl}/posts/${postId}/comments`);
   }
@@ -58,7 +62,7 @@ export class RequestsService {
     return this.http.get(`${environment.apiUrl}/users/${userId}/todos`);
   }
 
-  public getPostsPerUser(userId: number): Observable<any> {
+  public getPostsPerUser(userId: string | null): Observable<any> {
     return this.http.get(`${environment.apiUrl}/users/${userId}/posts`);
   }
 
