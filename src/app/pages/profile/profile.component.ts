@@ -23,7 +23,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  verPosts(userId: number) {
+  showPosts(userId: number) {
+    this.router.navigate(['/posts', userId]);
+  }
+
+  showAlbums(userId: number) {
     this.router.navigate(['/posts', userId]);
   }
 

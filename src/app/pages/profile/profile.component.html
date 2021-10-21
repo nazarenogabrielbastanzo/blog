@@ -24,8 +24,8 @@
             </mat-list>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button (click)="verPosts(user.id)">{{ 'posts' | uppercase }}</button>
-            <!-- <button mat-button>SHARE</button> -->
+            <button mat-button (click)="showPosts(user.id)">{{ 'my posts' | uppercase }}</button>
+            <button mat-button (click)="showAlbums(user.id)">{{ 'my albums' | uppercase }}</button>
           </mat-card-actions>
         </mat-card>
       </div>
