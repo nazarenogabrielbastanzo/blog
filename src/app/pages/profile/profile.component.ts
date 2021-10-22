@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { RequestsService } from '../../services/requests.service';
 
 @Component({
@@ -9,18 +9,32 @@ import { RequestsService } from '../../services/requests.service';
 })
 export class ProfileComponent implements OnInit {
   user: any;
+  userId: any;
 
   constructor(
     private reqSvc: RequestsService,
-    private router: Router
+    private router: Router,
+    private actRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    const userId = localStorage.getItem('userId');
 
-    this.reqSvc.getUser(userId).subscribe((user: any) => {
-      this.user = user;
+    this.actRoute.paramMap.subscribe((params: any) => {
+      this.userId = params.params.userId;
     });
+
+    if (this.userId) {
+      this.reqSvc.getUser(this.userId).subscribe((user: any) => {
+        this.user = user;
+      });
+    } else {
+      const userId = localStorage.getItem('userId');
+
+      this.reqSvc.getUser(userId).subscribe((user: any) => {
+        this.user = user;
+      });
+    }
+
   }
 
   showPosts(userId: number) {
@@ -31,4 +45,7 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/posts', userId]);
   }
 
+  showTodos(userId: number) {
+    this.router.navigate(['/todos', userId]);
+  }
 }

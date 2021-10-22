@@ -24,6 +24,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'profile/:userId',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'users',
     component: UsersComponent,
     canActivate: [AuthGuard]
@@ -50,6 +55,11 @@ const routes: Routes = [
   },
   {
     path: 'todos',
+    component: TodosComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'todos/:userId',
     component: TodosComponent,
     canActivate: [AuthGuard]
   },
