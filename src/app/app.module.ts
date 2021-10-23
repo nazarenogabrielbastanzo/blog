@@ -16,6 +16,7 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { AlbumsComponent } from './pages/albums/albums.component';
 import { TodosComponent } from './pages/todos/todos.component';
 import { PostComponent } from './pages/post/post.component';
+import { PhotosComponent } from './pages/photos/photos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PostComponent } from './pages/post/post.component';
     PostsComponent,
     AlbumsComponent,
     TodosComponent,
-    PostComponent
+    PostComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TodosComponent } from './pages/todos/todos.component';
 import { UsersComponent } from './pages/users/users.component';
+import { PhotosComponent } from './pages/photos/photos.component';
 
 const routes: Routes = [
   // {
@@ -61,6 +62,11 @@ const routes: Routes = [
   {
     path: 'todos/:userId',
     component: TodosComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'photos/:albumId',
+    component: PhotosComponent,
     canActivate: [AuthGuard]
   },
   {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RequestsService } from '../../services/requests.service';
 
 @Component({
@@ -8,12 +8,14 @@ import { RequestsService } from '../../services/requests.service';
   styleUrls: ['./albums.component.css']
 })
 export class AlbumsComponent implements OnInit {
+  panelOpenState: boolean = false;
   userId: any;
   albums: any;
 
   constructor(
     private reqSvc: RequestsService,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -33,4 +35,11 @@ export class AlbumsComponent implements OnInit {
     }
   }
 
+  showPhotos(albumId: number) {
+    this.router.navigate(['/photos', albumId]);
+  }
+
+  showProfile(userId: number) {
+    this.router.navigate(['/profile', userId]);
+  }
 }
