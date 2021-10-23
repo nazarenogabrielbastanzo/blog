@@ -21,7 +21,19 @@
                   {{ todo.title }}
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <!-- Add here the card -->
+
+              <mat-card class="example-card">
+                <mat-card-title>{{ todo.title }}</mat-card-title>
+                <mat-card-subtitle><strong>User ID:</strong> {{ todo.userId }}</mat-card-subtitle>
+                <mat-card-content>
+                  <!-- Add Todo State here... -->
+                </mat-card-content>
+                <!-- <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions> -->
+              </mat-card>
+
             </mat-expansion-panel>
           </mat-accordion>
 
