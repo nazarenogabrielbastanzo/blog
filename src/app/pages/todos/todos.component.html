@@ -10,16 +10,20 @@
             <h2>To-Dos ({{ todos.length }})</h2>
           </header>
 
-          <table>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-            </tr>
-            <tr *ngFor="let todo of todos">
-              <td>{{ todo.id }}</td>
-              <td>{{ todo.title }}</td>
-            </tr>
-          </table>
+          <mat-accordion>
+            <mat-expansion-panel
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+              *ngFor="let todo of todos"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{ todo.title }}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <!-- Add here the card -->
+            </mat-expansion-panel>
+          </mat-accordion>
 
         </div>
     </div>

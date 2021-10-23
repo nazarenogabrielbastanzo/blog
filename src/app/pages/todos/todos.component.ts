@@ -8,6 +8,7 @@ import { RequestsService } from '../../services/requests.service';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
+  panelOpenState: boolean = false;
   userId: any;
   todos: any;
 

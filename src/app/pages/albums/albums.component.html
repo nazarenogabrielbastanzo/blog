@@ -10,17 +10,6 @@
           <h2>Albums ({{ albums.length }})</h2>
         </header>
 
-        <!-- <table>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-          </tr>
-          <tr *ngFor="let album of albums">
-            <td>{{ album.id }}</td>
-            <td>{{ album.title }}</td>
-          </tr>
-        </table> -->
-
         <mat-accordion>
           <mat-expansion-panel
             (opened)="panelOpenState = true"
