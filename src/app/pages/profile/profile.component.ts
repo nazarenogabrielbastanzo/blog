@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
   }
 
   showAlbums(userId: number) {
-    this.router.navigate(['/posts', userId]);
+    this.router.navigate(['/albums', userId]);
   }
 
   showTodos(userId: number) {

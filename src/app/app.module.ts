@@ -15,6 +15,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { AlbumsComponent } from './pages/albums/albums.component';
 import { TodosComponent } from './pages/todos/todos.component';
+import { PostComponent } from './pages/post/post.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TodosComponent } from './pages/todos/todos.component';
     UsersComponent,
     PostsComponent,
     AlbumsComponent,
-    TodosComponent
+    TodosComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

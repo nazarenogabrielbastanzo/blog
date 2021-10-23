@@ -4,13 +4,13 @@
     <div class="row aln-center">
 
       <!-- Content -->
-        <div id="content" class="col-8 col-12-medium">
+        <div id="content" class="col-8 col-12-medium" *ngIf="posts">
 
           <header>
-            <h2>Posts</h2>
+            <h2>Posts ({{ posts.length }})</h2>
           </header>
 
-          <table *ngIf="posts">
+          <table>
             <tr>
               <th>ID</th>
               <th>Title</th>
