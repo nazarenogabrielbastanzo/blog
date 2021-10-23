@@ -10,7 +10,7 @@
             <h2>Posts ({{ posts.length }})</h2>
           </header>
 
-          <table>
+          <!-- <table>
             <tr>
               <th>ID</th>
               <th>Title</th>
@@ -19,8 +19,26 @@
               <td>{{ post.id }}</td>
               <td>{{ post.title }}</td>
             </tr>
-          </table>
+          </table> -->
 
+          <mat-accordion>
+            <mat-expansion-panel
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+              *ngFor="let post of posts"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{ post.title }}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>{{ post.body }}</p>
+              <button
+                mat-raised-button
+                (click)="userDetail(post.userId)"
+              >User detail</button>
+            </mat-expansion-panel>
+          </mat-accordion>
         </div>
     </div>
   </div>

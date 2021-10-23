@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RequestsService } from 'src/app/services/requests.service';
 
 @Component({
@@ -8,13 +8,15 @@ import { RequestsService } from 'src/app/services/requests.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+  panelOpenState: boolean = false;
 
   posts: any[] = [];
   userId: any;
 
   constructor(
     private reqSvc: RequestsService,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -31,5 +33,9 @@ export class PostsComponent implements OnInit {
         this.posts = posts;
       });
     }
+  }
+
+  userDetail(userId: number) {
+    this.router.navigate(['/profile', userId]);
   }
 }
