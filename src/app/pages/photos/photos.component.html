@@ -1,1 +1,24 @@
-<p>photos works!</p>
+<!-- Main -->
+<section id="main">
+  <div class="container">
+    <div class="row aln-center">
+
+      <!-- Content -->
+        <div id="content" class="col-8 col-12-medium" *ngIf="photos">
+
+          <header>
+            <h2>Photos ({{ photos.length }})</h2>
+          </header>
+
+          <mat-grid-list cols="4" rowHeight="2:1">
+            <mat-grid-tile *ngFor="let photo of photos; let i = index">
+              <img [src]="photo.thumbnailUrl" [alt]="i + 1" (click)="showPhoto(photo)">
+            </mat-grid-tile>
+          </mat-grid-list>
+
+
+        </div>
+
+    </div>
+  </div>
+</section>

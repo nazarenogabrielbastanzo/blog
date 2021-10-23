@@ -4,37 +4,36 @@
     <div class="row aln-center">
 
       <!-- Content -->
-        <div id="content" class="col-8 col-12-medium" *ngIf="posts">
+        <div id="content" class="col-8 col-12-medium" *ngIf="comments">
 
           <header>
-            <h2>Posts ({{ posts.length }})</h2>
+            <h2>Comments ({{ comments.length }})</h2>
           </header>
 
           <mat-accordion>
             <mat-expansion-panel
               (opened)="panelOpenState = true"
               (closed)="panelOpenState = false"
-              *ngFor="let post of posts"
+              *ngFor="let comment of comments"
             >
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  {{ post.title }}
+                  Comment {{ comment.id }}
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <p>{{ post.body }}</p>
-              <button
-                mat-raised-button
-                color="accent"
-                (click)="userDetail(post.userId)"
-              >User detail</button>
-              <button
-                mat-raised-button
-                color="primary"
-                (click)="showComments(post.id)"
-              >Comments</button>
+
+              <mat-card class="example-card">
+                <mat-card-title>{{ comment.name }}</mat-card-title>
+                <mat-card-subtitle>{{ comment.email }}</mat-card-subtitle>
+                <mat-card-content>
+                  <p>{{ comment.body }}</p>
+                </mat-card-content>
+              </mat-card>
+
             </mat-expansion-panel>
           </mat-accordion>
         </div>
+
     </div>
   </div>
 </section>

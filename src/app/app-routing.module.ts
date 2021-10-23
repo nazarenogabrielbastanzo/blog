@@ -9,6 +9,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TodosComponent } from './pages/todos/todos.component';
 import { UsersComponent } from './pages/users/users.component';
 import { PhotosComponent } from './pages/photos/photos.component';
+import { CommentsComponent } from './pages/comments/comments.component';
 
 const routes: Routes = [
   // {
@@ -67,6 +68,11 @@ const routes: Routes = [
   {
     path: 'photos/:albumId',
     component: PhotosComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'comments/:postId',
+    component: CommentsComponent,
     canActivate: [AuthGuard]
   },
   {

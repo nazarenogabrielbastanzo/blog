@@ -38,4 +38,8 @@ export class PostsComponent implements OnInit {
   userDetail(userId: number) {
     this.router.navigate(['/profile', userId]);
   }
+
+  showComments(postId: number) {
+    this.router.navigate(['/comments', postId]);
+  }
 }

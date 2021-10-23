@@ -17,6 +17,8 @@ import { AlbumsComponent } from './pages/albums/albums.component';
 import { TodosComponent } from './pages/todos/todos.component';
 import { PostComponent } from './pages/post/post.component';
 import { PhotosComponent } from './pages/photos/photos.component';
+import { CommentsComponent } from './pages/comments/comments.component';
+import { PhotoComponent } from './components/photo/photo.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { PhotosComponent } from './pages/photos/photos.component';
     AlbumsComponent,
     TodosComponent,
     PostComponent,
-    PhotosComponent
+    PhotosComponent,
+    CommentsComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
