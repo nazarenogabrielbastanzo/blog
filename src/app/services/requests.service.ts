@@ -1,14 +1,22 @@
 import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json;charset=UTF-8'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestsService {
+  newUserStr: any = localStorage.getItem('newUser');
+  newUser: any;
 
   constructor(
     private http: HttpClient,
@@ -67,17 +75,33 @@ export class RequestsService {
   }
 
   public login(username: string, password: string) {
-    this.getUsers().subscribe((users: any) => {
-      for (let user of users) {
-        if (user.username === username && password === 'abc123') {
-          localStorage.setItem('userId', user.id);
-          this._snackBar.open('Login successful', 'Ok', {
-            duration: 2000,
-          });
-          this.router.navigate(['/posts']);
+
+    this.newUser = JSON.parse(this.newUserStr);
+
+    if (this.newUser && password === 'abc123') {
+      localStorage.setItem('userId', this.newUser.username);
+      this._snackBar.open('Login successful!', 'Ok', {
+        duration: 2000,
+      });
+      this.router.navigate(['/posts']);
+    } else {
+      this.getUsers().subscribe((users: any) => {
+        for (let user of users) {
+          if (user.username === username && password === 'abc123') {
+            localStorage.setItem('userId', user.id);
+            this._snackBar.open('Login successful!', 'Ok', {
+              duration: 2000,
+            });
+            this.router.navigate(['/posts']);
+          }
         }
-      }
-    });
+      });
+    }
+
+  }
+
+  public register(username: string): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/users`, { username }, httpOptions);
   }
 
   private initializeStorage(): void {

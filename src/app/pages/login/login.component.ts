@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { RequestsService } from '../../services/requests.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(
-    private reqSvc: RequestsService
+    private reqSvc: RequestsService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,17 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.reqSvc.login((this.myForm.value.username).trim(), this.myForm.value.password);
+  }
+
+  register() {
+    this.reqSvc.register((this.myForm.value.username).trim())
+      .subscribe((resp: any) => {
+        console.log(resp);
+
+        localStorage.setItem('newUser', JSON.stringify(resp));
+
+        this._snackBar.open('Successful registration! Now you can login', 'Ok');
+      });
   }
 
 }
