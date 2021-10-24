@@ -79,7 +79,7 @@ export class RequestsService {
     this.newUser = JSON.parse(this.newUserStr);
 
     if (this.newUser && password === 'abc123') {
-      localStorage.setItem('userId', this.newUser.username);
+      localStorage.setItem('userId', this.newUser.id);
       this._snackBar.open('Login successful!', 'Ok', {
         duration: 2000,
       });
